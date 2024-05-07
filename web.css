@@ -4,60 +4,56 @@
 }
 
 /* Header Styles */
-.header {
-  background-color:  Light grey;
+header {
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16);
-
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 100px;
 }
 
-.main-menu {
-  display: flex;  /* Added display: flex; */
+.title{
+  font-size: 25px;
+  font-weight: bold;
 }
 
+.logo { 
+  font-size: 30px;
+  font-weight: bold;
+  background-position: center;
+  background-size: cover;
+}
+.main-menu ul {
+  display: flex; 
+  list-style: none; 
+}
+
+.main-menu ul li a {
+  display: block; 
+  color: black;
+  font-size: 20px;
+  padding: 8px 25px;
+  transition: .2s;
+  margin: 0 5px;
+  text-decoration: none;
+
+}
 h1, nav {
   flex: 1;  /* Added flex: 1; */
   font-size: 20px;
   color: black;
   text-align: left;
 }
-h1{
-  margin-top: 0;
-}
-h2 {
-  font-size: 30px;
-}
-
-/* Navigation Styles */
-nav {
-  text-align: right;  /* Right-align navigation links */
-  padding-right: 20px;  /* Add some padding for right alignment */
-}
-
-.nav-links {
-  margin: 0;  /* Remove margin for inline display */
-  padding: 0;  /* Remove padding for inline display */
-  list-style: none;  /* Remove default list style */
-}
-
-.nav-links li {
-  display: inline-block;  /* Display links inline */
-  margin-left: 20px;  /* Add margin between links */
-}
-
-.nav-links a {
-  color: black;  /* Text color for navigation links */
-  text-decoration: none;  /* Remove underline from links */
-  font-weight: bold;  /* Bold text for navigation links */
-}
 
 
-.nav-links a:hover {
-  background-color: #333; /* Change text color on hover */
-	transition: 0.3s all ease-in-out;
+.main-menu a:hover {
+  background-color: #333; 
+  transition: 0.2s all ease-in-out;
   color: white;
   border-radius: 10%;
 }
-
 
 
 /* Other Styles (unchanged) */
@@ -75,32 +71,44 @@ body {
   padding: 30px;
 }
 
-/* Hero Section */
-.hero {
+/* Welcome Section */
+.welcome{
   background-size: cover;
   background-position: center;
   padding: 100px 0;
   text-align: center;
+  box-shadow: 0 5px 5px 0 rgba(0,0,0,0.16);
+  display: flex;
+  justify-content: space-between;
 }
 
-.hero h2 {
+.welcome h2 {
   font-size: 50px;
   text-align: center;
   margin-bottom: 20px;
 }
 
-.hero p {
+.welcome p {
   font-size: 30px;
   text-align: center;
   margin-bottom: 40px;
 }
 
 .btn {
-  background-color: #333;
-  color: #fff;
+  display: inline-block;
   padding: 10px 20px;
+  background-color: #213032;
+  color: #fff;
   text-decoration: none;
+  font-weight: bold;
   border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #e4e4e4;
+  color: #213032;
+  
 }
 /* About Section */
 #about {
@@ -128,40 +136,131 @@ body {
   max-width: 70%;
   height: auto;
   border-radius: 5px;
-}
-/* Menu Section */
-#menu {
-  background-color: #fff;
-  padding: 50px 0;
+
+.slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 300px; /* adjust height as needed */
 }
 
-.menu-items {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
 }
 
-.menu-item {
-  border: 1px solid #d5d5d5;
-  border-radius: 5px;
-  padding: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.slider img.active {
+    transform: translateX(0);
 }
 
-.menu-item img {
-  width: 80%; /* Set a fixed width */
-  height: auto; /* Set a fixed height */
-  object-fit: cover; /* Maintain the aspect ratio */
-  border-radius: 5px;
+.slider img:not(.active) {
+    transform: translateX(-100%);
+}
+}
+/*Recipe Section CSS*/
+.recipe{
+  width: 100%;
+  padding: 100px 0px;
+  background-color: light gainsboro;
+}
+.recipe h1 {
+color: black;
+font: arial;
+font-size: 20px;
+text-align: center;
 }
 
-.menu-item p {
-  font-size: 16px;
+.recipe h2{
+color: rgba(0, 0, 0, .95);
+  font-size: 36px;
+  text-transform: capitalize;
+  margin-top: 0px;
+  margin-bottom: 20px;
   text-align: center;
+  font-family: SourceSansPro,Helvetica,sans-serif;
+}
+.box{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.card{
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+.box .card {
+position: relative;
+width: 300px;
+height: 350px;
+margin: 10px;
+overflow: hidden;
+border-radius: 10px;
+box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+background-color: #fff;
+transition: transform 0.3s;
+padding: 20px; /* Add padding to the card element */
+}
+.box .card img{
+  width: 80%; 
+  height: auto; 
+  object-fit: cover; 
+  border-radius: 5px;
 }
 
 
+.box .card .content {
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+padding: 15px;
+background-color: #edffef;
+color: #182f32;
+text-align: center;
+opacity: 0;
+transition: opacity 0.3s;
+border-radius: 3px;
+}
+.box .card:hover .content{
+  opacity: 1;
+}
+.card h3{
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #213032;
+}
+.box .card p{
+  font-size: 14px;
+  margin-bottom: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.box .card a.recipe-button {
+position: relative;
+background-color: #333;
+color: #fff;
+text-decoration: none;
+font-weight: bold;
+transition: transform 0.4s;
+padding: 5px 10px;
+margin-bottom: -20px;
+border-radius: 5px;
+}
+
+.box .card a.recipe-button:hover {
+background-color: #97a2a3;
+color: #213032;
+cursor: pointer;
+}
 
 /* Contact Section */
 #contact {
