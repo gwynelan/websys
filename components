@@ -2,31 +2,27 @@
 
 import React from 'react';
 import '../App.css';
-import wallDecor from '../img/walldecor.jpeg'; 
+import pastabg from '../img/pastabg.jpg'; 
 import slider1Image from '../img/slider1.jpg';
 import slider2Image from '../img/slider2.jpg';
+import Slider from './Slider';
 
 function About() {
-    return (
-      <div id="about">
-        <div className="container">
-          <h2>About Us</h2>
-          <p>Savor Delight is a restaurant that offers a wide range of delectable dishes prepared by our expert chefs. We strive to provide a memorable dining experience for our customers.</p>
-          <div className="slider">
-            <div className="slider-content">
-              <img src={wallDecor} alt="Slider 1" />
-              <img src={slider1Image} alt="Slider 2" />
-              <img src={slider2Image} alt="Slider 3" />
-            </div>
-            <button className="slider-button slider-prev">Previous</button>
-            <button className="slider-button slider-next">Next</button>
-          </div>
-        </div>
+  const images = [pastabg, slider1Image, slider2Image];
+
+  return (
+    <div id="about">
+      <div className="container">
+        <h2>About Us</h2>
+        <p>Savor Delight is a restaurant that offers a wide range of delectable dishes prepared by our expert chefs. We strive to provide a memorable dining experience for our customers.</p>
+        <Slider images={images} />
       </div>
-    );
+    </div>
+  );
 }
 
 export default About;
+
 
 //Contacts//
 
@@ -127,70 +123,44 @@ export default PopularPicks;
 //Slider//
 
 import React, { useState, useEffect } from 'react';
+import '../App.css';
 
-function Slider() {
-    const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-    const [slides, setSlides] = useState([]);
+function Slider({ images = [] }) {  // Default value to prevent undefined error
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
-    const handlePrevButtonClick = () => {
-        setCurrentSlideIndex((prevIndex) => (prevIndex === 0 ? slides.length - 1 : prevIndex - 1));
-    };
+  useEffect(() => {
+    if (images.length === 0) return;
 
-    const handleNextButtonClick = () => {
-        setCurrentSlideIndex((prevIndex) => (prevIndex === slides.length - 1 ? 0 : prevIndex + 1));
-    };
+    const slides = document.querySelectorAll('.slider-content img');
+    slides.forEach((slide) => {
+      slide.style.display = 'none';
+    });
+    slides[currentSlideIndex].style.display = 'block';
+  }, [currentSlideIndex, images]);
 
-    useEffect(() => {
-        const sliderContent = document.querySelector('.slider-content');
-        const slides = sliderContent.querySelectorAll('img'); // Define slides here
-        setSlides(slides); // Set slides state
+  const handlePrevClick = () => {
+    setCurrentSlideIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
 
-        // Function to show the current slide
-        function showSlide(index) {
-            // Hide all slides
-            slides.forEach(function(slide) {
-                slide.style.display = 'none';
-            });
+  const handleNextClick = () => {
+    setCurrentSlideIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
 
-            // Show the slide at the given index
-            slides[index].style.display = 'block';
-        }
-
-        // Show the initial slide
-        showSlide(currentSlideIndex);
-
-        // Event listener for the previous button
-        const prevButton = document.querySelector('.slider-prev');
-        prevButton.addEventListener('click', () => {
-            handlePrevButtonClick();
-            showSlide(currentSlideIndex);
-        });
-
-        // Event listener for the next button
-        const nextButton = document.querySelector('.slider-next');
-        nextButton.addEventListener('click', () => {
-            handleNextButtonClick();
-            showSlide(currentSlideIndex);
-        });
-
-        return () => {
-            prevButton.removeEventListener('click', handlePrevButtonClick);
-            nextButton.removeEventListener('click', handleNextButtonClick);
-        };
-    }, [currentSlideIndex, slides]);
-
-    return (
-        <div>
-            <div className="slider-content">
-                {/* Render slides */}
-            </div>
-            <button className="slider-prev" onClick={handlePrevButtonClick}>Previous</button>
-            <button className="slider-next" onClick={handleNextButtonClick}>Next</button>
-        </div>
-    );
+  return (
+    <div className="slider">
+      <div className="slider-content">
+        {images.map((src, index) => (
+          <img key={index} src={src} alt={`Slide ${index + 1}`} style={{ display: 'none' }} />
+        ))}
+      </div>
+      <button className="slider-button slider-prev" onClick={handlePrevClick}>Previous</button>
+      <button className="slider-button slider-next" onClick={handleNextClick}>Next</button>
+    </div>
+  );
 }
 
 export default Slider;
+
 
 //Welcome//
 
