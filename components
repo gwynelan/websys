@@ -1,0 +1,211 @@
+//About//
+
+import React from 'react';
+import '../App.css';
+import wallDecor from '../img/walldecor.jpeg'; 
+import slider1Image from '../img/slider1.jpg';
+import slider2Image from '../img/slider2.jpg';
+
+function About() {
+    return (
+      <div id="about">
+        <div className="container">
+          <h2>About Us</h2>
+          <p>Savor Delight is a restaurant that offers a wide range of delectable dishes prepared by our expert chefs. We strive to provide a memorable dining experience for our customers.</p>
+          <div className="slider">
+            <div className="slider-content">
+              <img src={wallDecor} alt="Slider 1" />
+              <img src={slider1Image} alt="Slider 2" />
+              <img src={slider2Image} alt="Slider 3" />
+            </div>
+            <button className="slider-button slider-prev">Previous</button>
+            <button className="slider-button slider-next">Next</button>
+          </div>
+        </div>
+      </div>
+    );
+}
+
+export default About;
+
+//Contacts//
+
+
+import React from 'react';
+import '../App.css';
+
+
+function Contact() {
+    return (
+      <section id="contact">
+        <div className="container">
+          <h2>Contact Us</h2>
+          <p>For reservations or inquiries, please feel free to reach out to us.</p>
+          <div className="contact-info">
+            <p><strong>Address:</strong> 123 Main Street, Cagayan de Oro City, Philippines</p>
+            <p><strong>Phone:</strong> +63 930-241-6804</p>
+            <p><strong>Email:</strong> <a href="mailto:info@savordelight.com">info@savordelight.com</a></p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+  
+  export default Contact;
+
+
+
+//Header//
+
+
+import React from 'react';
+import '../App.css';
+
+function Header() {
+  return (
+    <header>
+      <div className="title">Savor Delight</div>
+      <div className="main-menu">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+  );
+}
+
+export default Header;
+
+
+
+//Menu//
+
+import React from 'react';
+import creamyGarlicPastaImage from '../img/Creamy-garlic-pasta.jpeg';
+import cheeseburgerPastaImage from '../img/Cheeseburger-Pasta-.jpeg';
+import mackerelBeetrootImage from '../img/chargrilled-mackerel-with-sweet-sour-beetroot.jpeg';
+
+function PopularPicks() {
+    return (
+        <div className="recipe" id="menu">
+            <h2>Popular Picks</h2>
+            <div className="box">
+                <div className="card">
+                    <h3>Creamy Garlic Pasta</h3>
+                    <p>This creamy tagliatelle recipe makes a comforting midweek meal. Any long pasta will work, so use whatever you have in the cupboard.</p>
+                    <img src={creamyGarlicPastaImage} alt="Creamy Garlic Pasta" />
+                    <div className="content">
+                        <a href="recipe.html" className="recipe-button">View Recipe</a>
+                    </div>
+                </div>
+                <div className="card">
+                    <h3>One-Pot Cheeseburger Pasta</h3>
+                    <p>Combine the best of two comfort foods in one dish – perfect for a Friday night treat. Top with pickles and jalapeños to serve.</p>
+                    <img src={cheeseburgerPastaImage} alt="One-Pot Cheeseburger Pasta" />
+                    <div className="content">
+                        <a href="recipe.html" className="recipe-button">View Recipe</a>
+                    </div>
+                </div>
+                <div className="card">
+                    <h3>Chargrilled Mackerel with Sweet Sour Beetroot</h3>
+                    <p>Delicious smoked, baked, or grilled on the barbecue.</p>
+                    <img src={mackerelBeetrootImage} alt="Chargrilled Mackerel with Sweet Sour Beetroot" />
+                    <div className="content">
+                        <a href="recipe.html" className="recipe-button">View Recipe</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export default PopularPicks;
+
+
+//Slider//
+
+import React, { useState, useEffect } from 'react';
+
+function Slider() {
+    const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+    const [slides, setSlides] = useState([]);
+
+    const handlePrevButtonClick = () => {
+        setCurrentSlideIndex((prevIndex) => (prevIndex === 0 ? slides.length - 1 : prevIndex - 1));
+    };
+
+    const handleNextButtonClick = () => {
+        setCurrentSlideIndex((prevIndex) => (prevIndex === slides.length - 1 ? 0 : prevIndex + 1));
+    };
+
+    useEffect(() => {
+        const sliderContent = document.querySelector('.slider-content');
+        const slides = sliderContent.querySelectorAll('img'); // Define slides here
+        setSlides(slides); // Set slides state
+
+        // Function to show the current slide
+        function showSlide(index) {
+            // Hide all slides
+            slides.forEach(function(slide) {
+                slide.style.display = 'none';
+            });
+
+            // Show the slide at the given index
+            slides[index].style.display = 'block';
+        }
+
+        // Show the initial slide
+        showSlide(currentSlideIndex);
+
+        // Event listener for the previous button
+        const prevButton = document.querySelector('.slider-prev');
+        prevButton.addEventListener('click', () => {
+            handlePrevButtonClick();
+            showSlide(currentSlideIndex);
+        });
+
+        // Event listener for the next button
+        const nextButton = document.querySelector('.slider-next');
+        nextButton.addEventListener('click', () => {
+            handleNextButtonClick();
+            showSlide(currentSlideIndex);
+        });
+
+        return () => {
+            prevButton.removeEventListener('click', handlePrevButtonClick);
+            nextButton.removeEventListener('click', handleNextButtonClick);
+        };
+    }, [currentSlideIndex, slides]);
+
+    return (
+        <div>
+            <div className="slider-content">
+                {/* Render slides */}
+            </div>
+            <button className="slider-prev" onClick={handlePrevButtonClick}>Previous</button>
+            <button className="slider-next" onClick={handleNextButtonClick}>Next</button>
+        </div>
+    );
+}
+
+export default Slider;
+
+//Welcome//
+
+import React from 'react';
+
+function Welcome() {
+    return (
+      <div className="welcome">
+        <div className="container">
+          <h2>Welcome to Savor Delight</h2>
+          <p>Experience the finest dining in town</p>
+          <a href="#menu" className="btn">View Menu</a>
+        </div>
+      </div>
+    );
+  }
+
+  export default Welcome;
