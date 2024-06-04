@@ -1,3 +1,32 @@
+//APP.jsx//
+
+
+import './App.css';
+import Header from "./components/Header";
+import Welcome from "./components/Welcome";
+import About from "./components/About;
+import Menu from "./components/Menu";
+import Contact from "./components/Contact";
+import  "./css/web.css";
+import React from 'react';
+
+
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      <Welcome />
+      <About />
+      <Menu />
+      <Contact />
+      <Slider />
+    </div>
+  );
+}
+
+export default App;
+
+
 //About//
 
 import React from 'react';
