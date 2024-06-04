@@ -1,0 +1,469 @@
+Home Page
+
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import '../css/web.css';
+import creamyGarlicPastaImage from '../img/Creamy-garlic-pasta.jpeg';
+import cheeseburgerPastaImage from '../img/Cheeseburger-Pasta-.jpeg';
+import mackerelBeetrootImage from '../img/chargrilled-mackerel-with-sweet-sour-beetroot.jpeg';
+import pastabg from '../img/pastabg.jpg'; 
+import slider1Image from '../img/slider1.jpg';
+import slider2Image from '../img/slider2.jpg';
+
+
+const HomePage = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = './javascript/web.js'; // Path to your JavaScript file
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return (
+    <div>
+      <header>
+        <div className="title">Savor Delight</div>
+        <div className="main-menu">
+          <ul>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/menu">Menu</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
+          </ul>
+        </div>
+      </header>
+
+      <div className="welcome">
+        <div className="container">
+          <h2>Welcome to Savor Delight</h2>
+          <p>Experience the finest dining in town</p>
+          <Link to="/menu" className="btn">View Menu</Link>
+        </div>
+      </div>
+
+      <div id="about">
+        <div className="container">
+          <h2>About Us</h2>
+          <p>Savor Delight is a restaurant that offers a wide range of delectable dishes prepared by our expert chefs. We strive to provide a memorable dining experience for our customers.</p>
+          <div className="slider">
+            <div className="slider-content">
+              <img src={pastabg} alt="Slider 1" />
+              <img src={slider1Image} alt="Slider 2" />
+              <img src={slider2Image} alt="Slider 3" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="recipe" id="menu">
+        <h2>Popular Picks</h2>
+        <div className="box">
+          <div className="card">
+            <h3>Creamy Garlic Pasta</h3>
+            <p>This creamy tagliatelle recipe makes a comforting midweek meal. Any long pasta will work, so use whatever you have in the cupboard.</p>
+            <img src={creamyGarlicPastaImage} alt="Creamy Garlic Pasta" />
+            <div className="content">
+              <Link to="/recipe" className="recipe-button">View Recipe</Link>
+            </div>
+          </div>
+          <div className="card">
+            <h3>One-Pot Cheeseburger Pasta</h3>
+            <p>Combine the best of two comfort foods in one dish – perfect for a Friday night treat. Top with pickles and jalapeños to serve.</p>
+            <img src={cheeseburgerPastaImage} alt="One-Pot Cheeseburger Pasta" />
+            <div className="content">
+              <Link to="/recipe" className="recipe-button">View Recipe</Link>
+            </div>
+          </div>
+          <div className="card">
+            <h3>Chargrilled Mackerel with Sweet Sour Beetroot</h3>
+            <p>Delicious smoked, baked, or grilled on the barbecue.</p>
+            <img src={mackerelBeetrootImage} alt="Chargrilled Mackerel with Sweet Sour Beetroot" />
+            <div className="content">
+              <Link to="/recipe" className="recipe-button">View Recipe</Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="contact">
+  <div className="container">
+    <h2>Contact Us</h2>
+    <p>For reservations or inquiries, please feel free to reach out to us.</p>
+    <div className="contact-info">
+      <p><strong>Address:</strong> 123 Main Street, Cagayan de Oro City, Philippines</p>
+      <p><strong>Phone:</strong> +63 930-241-6804</p>
+      <p><strong>Email:</strong> <a href="mailto:savordelight@gmail.com">savordelight@gmail.com</a></p>
+    </div>
+  </div>
+</div>
+
+    </div>
+  );
+};
+
+export default HomePage;
+
+
+Aboout PAge
+
+
+import React from 'react';
+import '../css/about.css'; // Make sure to adjust the path if necessary
+import chefImage from '../img/chef.avif'; 
+import cherryImage from '../img/cherry.jpg'; // Import the cherry image
+import puttanescaImage from '../img/puttanesca.jpeg'; // Import the puttanesca image
+import creamyPastaImage from '../img/creamypasta.jpg'; // Import the creamy pasta image
+import logo from '../img/logo.png'; 
+
+const AboutPage = () => {
+  return (
+    <div>
+      <nav className="navbar">
+        <div className="nav-center">
+          <div className="nav-header">
+            <a href="web.html" className="nav-logo">
+                <img src={logo} alt="simply recipes" />
+            </a>
+            <button className="nav-btn btn">
+              <i className="fas fa-align-justify"></i>
+            </button>
+          </div>
+          <div className="nav-links">
+            <a href="/" className="nav-link"> home </a>
+            <a href="/menu" className="nav-link"> Menu </a>
+            <a href="/contact" className="nav-link"> Contact </a>
+          </div>
+        </div>
+      </nav>
+      <main className="page">
+        <section className="about-page">
+          <article>
+            <h2>Indulge in a tantalizing array of unique pasta recipes that will ignite your taste buds and inspire your inner chef!</h2>
+            <p>
+              Welcome to our pasta paradise! Dive into a culinary adventure with our website, where you'll discover a treasure trove of unique 
+              pasta recipes. From classic favorites to innovative creations, we've got something to tantalize every taste bud. 
+            </p>
+            <p>
+              Join us and embark on a delicious journey through the world of pasta!
+            </p>
+            <a href="contact.html" className="btn"> contact </a>
+          </article>
+          <img
+            src={chefImage}
+            alt="Person Pouring Salt in Bowl"
+            className="img about-img"
+          />
+        </section>
+        <section className="featured-recipes">
+          <h5 className="featured-title">Look At This AwesomePasta!</h5>
+          <div className="recipes-list">
+            <a href="menu.html" className="recipe">
+              <img
+                src={cherryImage}
+                className="img recipe-img"
+                alt=""
+              />
+              <h5>Cherry Tomato Pasta Salad </h5>
+              <p>Prep : 15min | Cook : 5min</p>
+            </a>
+            <a href="menu.html" className="recipe">
+              <img
+                src={puttanescaImage}
+                className="img recipe-img"
+                alt=""
+              />
+              <h5>Puttanesca with Angel Hair Pasta</h5>
+              <p>Prep : 15min | Cook : 5min</p>
+            </a>
+            <a href="/menu" className="recipe">
+              <img
+                src={creamyPastaImage}
+                className="img recipe-img"
+                alt=""
+              />
+              <h5>Creamy Pasta with Spinach</h5>
+              <p>Prep : 15min | Cook : 5min</p>
+            </a>
+          </div>
+        </section>
+      </main>
+      <footer className="page-footer">
+        <p>
+          &copy; <span id="date"></span>
+          <span className="footer-logo">SimplyRecipes</span> Built by
+          <a href="savordelight@gmail.com">Coding Addict</a>
+        </p>
+      </footer>
+    </div>
+  );
+};
+
+export default AboutPage;
+
+
+
+Menu Page
+
+
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import '../css/menu.css'; 
+import creamyGarlicPastaImage from '../img/Creamy-garlic-pasta.jpeg';
+import cheeseburgerPastaImage from '../img/Cheeseburger-Pasta-.jpeg';
+import mackerelBeetrootImage from '../img/chargrilled-mackerel-with-sweet-sour-beetroot.jpeg';
+import richPastaImage from '../img/richpasta.webp';
+import cherryTomatoImage from '../img/cherry.jpg';
+import filSpaghettiImage from '../img/filspagh.jpg';
+import puttanescaImage from '../img/puttanesca.jpeg';
+import garlicMushroomImage from '../img/garlic.jpg';
+import sunDriedTomatoImage from '../img/sun-dried.jpg';
+import allPuttanescaImage from '../img/allputs.jpg';
+import creamySpinachImage from '../img/creamypasta.jpg';
+import creamyCheeseImage from '../img/creamycheese.jpg';
+
+const MenuPage = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'savordelight/src/javascript/menuscript.js'; // Import the script file
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return (
+    <div className="search">
+      <h1>Food Recipe</h1>
+      <div className="search-box">
+        <div className="search-field">
+          <input placeholder="Search food or ingredients..." className="input" type="text" id="searchInput" />
+          <div className="search-box-icon">
+            <button className="btn-icon-content" id="searchButton">
+              <i className="search-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" fill="#fff" />
+                </svg>
+              </i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <Link to="/" className="home-button">Home</Link>
+
+      <section className="mainmenus">
+        <div className="mainrecipe" id="menu">
+          <h2>Best Dishes</h2>
+          <div className="box menu-gallery">
+            {/* Menu items */}
+            <div className="card menu-item">
+              <h3>Creamy Garlic Pasta</h3>
+              <p>This creamy tagliatelle recipe makes a comforting midweek meal. Any long pasta will work, so use whatever you have in the cupboard.</p>
+              <img src={creamyGarlicPastaImage} alt="Creamy Garlic Pasta" />
+              <div className="content">
+                <a href="recipe.html" className="recipe-button">View Recipe</a>
+              </div>
+            </div>
+            <div className="card menu-item">
+              <h3>One-Pot Cheeseburger Pasta</h3>
+              <p>Combine the best of two comfort foods in one dish – perfect for a Friday night treat. Top with pickles and jalapeños to serve.</p>
+              <img src={cheeseburgerPastaImage} alt="One-Pot Cheeseburger Pasta" />
+              <div className="content">
+                <a href="recipe.html" className="recipe-button">View Recipe</a>
+              </div>
+            </div>
+            <div className="card menu-item">
+              <h3>Chargrilled Mackerel with Sweet Sour Beetroot</h3>
+              <p>Delicious smoked, baked, or grilled on the barbecue.</p>
+              <img src={mackerelBeetrootImage} alt="Chargrilled Mackerel with Sweet Sour Beetroot" />
+              <div className="content">
+                <a href="recipe.html" className="recipe-button">View Recipe</a>
+              </div>
+            </div>
+            <div className="card menu-item">
+              <h3>Rich Pasta for the Poor Kitchen</h3>
+              <p>These buttered noodles are simple and quick. Pasta is tossed with butter, parsley, and Parmesan cheese.</p>
+              <img src={richPastaImage} alt="Rich Pasta for the Poor Kitchen" />
+              <div className="content">
+                <a href="recipe.html" className="recipe-button">View Recipe</a>
+              </div>
+            </div>
+            <div className="card menu-item">
+              <h3>Cherry Tomato Pasta Salad</h3>
+              <p>A juicy and bursting with flavor pasta salad made with tomatoes, garlic, basil, and olive oil. Simple and so good.</p>
+              <img src={cherryTomatoImage} alt="Cherry Tomato Pasta Salad" />
+              <div className="content">
+                <a href="recipe.html" className="recipe-button">View Recipe</a>
+              </div>
+            </div>
+            <div className="card menu-item">
+              <h3>Filipino Spaghetti</h3>
+              <p>This recipe is every kid’s favorite – Filipino Spaghetti – Spaghetti, hot dogs, tomato sauce, and seasonings. So simple, so good.</p>
+              <img src={filSpaghettiImage} alt="Filipino Spaghetti" />
+              <div className="content">
+                <a href="recipe.html" className="recipe-button">View Recipe</a>
+              </div>
+            </div>
+            <div className="card menu-item">
+              <h3>Puttanesca with Angel Hair Pasta</h3>
+              <p>Canned tomatoes, capers, black olives and anchovies combine to make a tangy and traditional puttanesca sauce.</p>
+              <img src={puttanescaImage} alt="Puttanesca with Angel Hair Pasta" />
+              <div className="content">
+                <a href="recipe.html" className="recipe-button">View Recipe</a>
+              </div>
+            </div>
+            <div className="card menu-item">
+              <h3>Quick Garlic Mushroom Pasta</h3>
+              <p>The smell of the garlic and the intensely flavored gravy released from the mushrooms take your basic spaghetti to the next level.</p>
+              <img src={garlicMushroomImage} alt="Quick Garlic Mushroom Pasta" />
+              <div className="content">
+                <a href="recipe.html" className="recipe-button">View Recipe</a>
+              </div>
+            </div>
+            <div className="card menu-item">
+              <h3>Sun-Dried Tomato Pasta</h3>
+              <p>This is a super quick recipe made with pasta, creamy ricotta, and intensely-flavored sun-dried tomatoes.</p>
+              <img src={sunDriedTomatoImage} alt="Sun-Dried Tomato Pasta" />
+              <div className="content">
+                <a href="recipe.html" className="recipe-button">View Recipe</a>
+              </div>
+            </div>
+            <div className="card menu-item">
+              <h3>Spaghetti Alla Puttanesca</h3>
+              <p>This is a luscious bowl of pasta where anchovies, capers, and olives bring amazing fiery flavors.</p>
+              <img src={allPuttanescaImage} alt="Spaghetti Alla Puttanesca" />
+              <div className="content">
+                <a href="recipe.html" className="recipe-button">View Recipe</a>
+              </div>
+            </div>
+            <div className="card menu-item">
+              <h3>Creamy Pasta with Spinach</h3>
+              <p>This is another terrific quick pasta recipe, it’s packed with spinach, and it’s easy and ready in less than 15 minutes. A weeknight meal the whole family will love.</p>
+              <img src={creamySpinachImage} alt="Creamy Pasta with Spinach" />
+              <div className="content">
+                <a href="recipe.html" className="recipe-button">View Recipe</a>
+              </div>
+            </div>
+            <div className="card menu-item">
+              <h3>Creamy Cheese Pasta</h3>
+              <p>Combine the best of two comfort foods in one dish – perfect for a Friday night treat. Top with pickles and jalapeños to serve.</p>
+              <img src={creamyCheeseImage} alt="Creamy Cheese Pasta" />
+              <div className="content">
+                <a href="recipe.html" className="recipe-button">View Recipe</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default MenuPage;
+
+
+Contact Page
+
+import React from 'react';
+import '../css/contact.css';
+import cherryImage from '../img/cherry.jpg';
+import puttanescaImage from '../img/puttanesca.jpeg';
+import creamyPastaImage from '../img/creamypasta.jpg';
+import logoImage from '../img/logo.png';
+
+const ContactPage = () => {
+  return (
+    <div>
+      {/* Navbar */}
+      <nav className="navbar">
+        <div className="nav-center">
+          <div className="nav-header">
+            <a href="about.html" className="nav-logo">
+              <img src={logoImage} alt="simply recipes" />
+            </a>
+            <button className="nav-btn btn">
+              <i className="fas fa-align-justify"></i>
+            </button>
+          </div>
+          <div className="nav-links">
+            <a href="/" className="nav-link"> home </a>
+            <a href="/about" className="nav-link"> about </a>
+            <a href="/menu" className="nav-link"> Menu </a>
+          </div>
+        </div>
+      </nav>
+
+      
+      <main className="page">
+        <section className="contact-container">
+          <article className="contact-info">
+            <h3>Craving culinary inspiration??</h3>
+            <p>
+              Dive into a world of pasta perfection! From classic favorites to innovative twists, 
+              our website is your go-to destination for all things pasta. Get in touch with your inner chef and let your taste buds dance!
+            </p>
+            <p>Slurp-worthy spaghetti, al dente linguine, and creamy fettuccine await! Embrace your inner pasta enthusiast with a dash of creativity and a sprinkle of culinary flair.</p>
+            <p>
+              From traditional Italian classics to modern twists, our website is your passport to pasta paradise. Let's swirl, twirl, and savor every delicious moment!
+            </p>
+          </article>
+          <article>
+            <form className="form contact-form">
+              <div className="form-row">
+                <label htmlFor="name" className="form-label">your name</label>
+                <input type="text" name="name" id="name" className="form-input" />
+              </div>
+              <div className="form-row">
+                <label htmlFor="email" className="form-label">your email</label>
+                <input type="text" name="email" id="email" className="form-input" />
+              </div>
+              <div className="form-row">
+                <label htmlFor="message" className="form-label">message</label>
+                <textarea name="message" id="message" className="form-textarea"></textarea>
+              </div>
+              <button type="submit" className="btn btn-block">
+                submit
+              </button>
+            </form>
+          </article>
+        </section>
+
+        {/* Featured recipes */}
+        <section className="featured-recipes">
+          <h5 className="featured-title">Look At This AwesomePasta!</h5>
+          <div className="recipes-list">
+            <a href="menu.html" className="recipe">
+              <img src={cherryImage} className="img recipe-img" alt="" />
+              <h5>Cherry Tomato Pasta Salad </h5>
+              <p>Prep : 15min | Cook : 5min</p>
+            </a>
+            <a href="menu.html" className="recipe">
+              <img src={puttanescaImage} className="img recipe-img" alt="" />
+              <h5>Puttanesca with Angel Hair Pasta</h5>
+              <p>Prep : 15min | Cook : 5min</p>
+            </a>
+            <a href="menu.html" className="recipe">
+              <img src={creamyPastaImage} className="img recipe-img" alt="" />
+              <h5>Creamy Pasta with Spinach</h5>
+              <p>Prep : 15min | Cook : 5min</p>
+            </a>
+          </div>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="page-footer">
+        <p>
+          &copy; <span id="date">{new Date().getFullYear()}</span>
+          <span className="footer-logo">SimplyRecipes</span> Built by
+          <a href="savordeight@gmail.com/">Coding Addict</a>
+        </p>
+      </footer>
+    </div>
+  );
+};
+
+export default ContactPage;
+
