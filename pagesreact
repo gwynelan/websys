@@ -1,6 +1,6 @@
 Home Page
 
-import React, { useEffect } from 'react';
+
 import { Link } from 'react-router-dom';
 import '../css/web.css';
 import creamyGarlicPastaImage from '../img/Creamy-garlic-pasta.jpeg';
@@ -9,27 +9,11 @@ import mackerelBeetrootImage from '../img/chargrilled-mackerel-with-sweet-sour-b
 import pastabg from '../img/pastabg.jpg'; 
 import slider1Image from '../img/slider1.jpg';
 import slider2Image from '../img/slider2.jpg';
+import Slideshow from '../javascript/web.js'; // Import Slideshow component
 
 const HomePage = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = './javascript/web.js'; // Path to your JavaScript file
-    script.async = true;
-
-    script.onload = () => {
-      console.log('Script loaded successfully.');
-    };
-
-    script.onerror = () => {
-      console.error('Error loading script.');
-    };
-
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+  // Define array of images for the slideshow
+  const slideshowImages = [pastabg, slider1Image, slider2Image];
 
   return (
     <div>
@@ -47,7 +31,7 @@ const HomePage = () => {
       <div className="welcome">
         <div className="container">
           <h2>Welcome to Savor Delight</h2>
-          <p className="welcome-text">Experience the finest dining in town</p>
+          <p>Experience the finest dining in town</p>
           <Link to="/menu" className="btn">View Menu</Link>
         </div>
       </div>
@@ -55,23 +39,17 @@ const HomePage = () => {
       <div id="about">
         <div className="container">
           <h2>About Us</h2>
-          <p className="about-text">Savor Delight is a restaurant that offers a wide range of delectable dishes prepared by our expert chefs. We strive to provide a memorable dining experience for our customers.</p>
-          <div className="slider">
-            <div className="slider-content">
-              <img src={pastabg} alt="Slider 1" />
-              <img src={slider1Image} alt="Slider 2" />
-              <img src={slider2Image} alt="Slider 3" />
-            </div>
-          </div>
+          <p>Savor Delight is a restaurant that offers a wide range of delectable dishes prepared by our expert chefs. We strive to provide a memorable dining experience for our customers.</p>
+          {/* Use the Slideshow component and pass slideshowImages as props */}
+          <Slideshow images={slideshowImages} />
         </div>
       </div>
-
       <div className="recipe" id="menu">
         <h2>Popular Picks</h2>
         <div className="box">
           <div className="card">
             <h3>Creamy Garlic Pasta</h3>
-            <p className="recipe-description">This creamy tagliatelle recipe makes a comforting midweek meal.</p>
+            <p>This creamy tagliatelle recipe makes a comforting midweek meal. </p>
             <img src={creamyGarlicPastaImage} alt="Creamy Garlic Pasta" />
             <div className="content">
               <Link to="/recipe" className="recipe-button">View Recipe</Link>
@@ -79,7 +57,7 @@ const HomePage = () => {
           </div>
           <div className="card">
             <h3>One-Pot Cheeseburger Pasta</h3>
-            <p className="recipe-description">Combine the best of two comfort foods in one dish – perfect for family.</p>
+            <p>Combine the best of two comfort foods in one dish – perfect dor family. </p>
             <img src={cheeseburgerPastaImage} alt="One-Pot Cheeseburger Pasta" />
             <div className="content">
               <Link to="/recipe" className="recipe-button">View Recipe</Link>
@@ -87,7 +65,7 @@ const HomePage = () => {
           </div>
           <div className="card">
             <h3>Chargrilled Mackerel with Sweet Sour Beetroot</h3>
-            <p className="recipe-description">Delicious smoked, baked, or grilled on the barbecue.</p>
+            <p>Delicious smoked, baked, or grilled on the barbecue.</p>
             <img src={mackerelBeetrootImage} alt="Chargrilled Mackerel with Sweet Sour Beetroot" />
             <div className="content">
               <Link to="/recipe" className="recipe-button">View Recipe</Link>
@@ -99,7 +77,7 @@ const HomePage = () => {
       <div id="contact">
         <div className="container">
           <h2>Contact Us</h2>
-          <p className="contact-text">For reservations or inquiries, please feel free to reach out to us.</p>
+          <p>For reservations or inquiries, please feel free to reach out to us.</p>
           <div className="contact-info">
             <p><strong>Address:</strong> 123 Main Street, Cagayan de Oro City, Philippines</p>
             <p><strong>Phone:</strong> +63 930-241-6804</p>
@@ -116,12 +94,15 @@ export default HomePage;
 
 
 
+
+
+
 Aboout PAge
 
 
 import React from 'react';
 import '../css/about.css'; // Make sure to adjust the path if necessary
-import chefImage from '../img/chef.avif'; 
+import chefImage from '../img/chef.avif'; // Import the chef image
 import cherryImage from '../img/cherry.jpg'; // Import the cherry image
 import puttanescaImage from '../img/puttanesca.jpeg'; // Import the puttanesca image
 import creamyPastaImage from '../img/creamypasta.jpg'; // Import the creamy pasta image
@@ -158,7 +139,7 @@ const AboutPage = () => {
             <p>
               Join us and embark on a delicious journey through the world of pasta!
             </p>
-            <a href="contact.html" className="btn"> contact </a>
+            <a href="/contact" className="btn"> contact </a>
           </article>
           <img
             src={chefImage}
@@ -169,7 +150,7 @@ const AboutPage = () => {
         <section className="featured-recipes">
           <h5 className="featured-title">Look At This AwesomePasta!</h5>
           <div className="recipes-list">
-            <a href="menu.html" className="recipe">
+            <a href="/menu" className="aboutrecipe">
               <img
                 src={cherryImage}
                 className="img recipe-img"
@@ -178,7 +159,7 @@ const AboutPage = () => {
               <h5>Cherry Tomato Pasta Salad </h5>
               <p>Prep : 15min | Cook : 5min</p>
             </a>
-            <a href="menu.html" className="recipe">
+            <a href="/menu" className="aboutrecipe">
               <img
                 src={puttanescaImage}
                 className="img recipe-img"
@@ -187,7 +168,7 @@ const AboutPage = () => {
               <h5>Puttanesca with Angel Hair Pasta</h5>
               <p>Prep : 15min | Cook : 5min</p>
             </a>
-            <a href="/menu" className="recipe">
+            <a href="/menu" className="aboutrecipe">
               <img
                 src={creamyPastaImage}
                 className="img recipe-img"
@@ -211,6 +192,9 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+
+
+
 
 
 
@@ -374,6 +358,7 @@ const MenuPage = () => {
 export default MenuPage;
 
 
+
 Contact Page
 
 import React from 'react';
@@ -442,19 +427,19 @@ const ContactPage = () => {
 
         {/* Featured recipes */}
         <section className="featured-recipes">
-          <h5 className="featured-title">Look At This AwesomePasta!</h5>
+          <h5 className="featured-title">Look At This Awesome Pasta!</h5>
           <div className="recipes-list">
-            <a href="menu.html" className="recipe">
+            <a href="/menu" className="aboutrecipes">
               <img src={cherryImage} className="img recipe-img" alt="" />
               <h5>Cherry Tomato Pasta Salad </h5>
               <p>Prep : 15min | Cook : 5min</p>
             </a>
-            <a href="menu.html" className="recipe">
+            <a href="/menu" className="contactrecipes">
               <img src={puttanescaImage} className="img recipe-img" alt="" />
               <h5>Puttanesca with Angel Hair Pasta</h5>
               <p>Prep : 15min | Cook : 5min</p>
             </a>
-            <a href="menu.html" className="recipe">
+            <a href="/menu" className="contactrecipes">
               <img src={creamyPastaImage} className="img recipe-img" alt="" />
               <h5>Creamy Pasta with Spinach</h5>
               <p>Prep : 15min | Cook : 5min</p>
@@ -482,6 +467,7 @@ export default ContactPage;
 
 WEB CSS
 //web.css//
+
 
 
 
@@ -788,6 +774,7 @@ a.btn {
 .contact-info p {
   color: white; /* Set the color to white */
   font-family: "Libre Franklin", sans-serif;;
+  text-align: center;
 
 }
 a {
@@ -796,10 +783,10 @@ a {
 
 
 
-
 ABOUT CSS
 
 //about.css//
+
 
 
 
@@ -871,7 +858,6 @@ body {
   line-height: 1.75;
   color: var(--textColor);
 }
-
 
 
 h1,
@@ -1134,13 +1120,19 @@ Recipes
   border-radius: var(--borderRadius);
   margin-bottom: 1rem;
 }
-.recipe h5 {
+.aboutrecipe h5 {
   margin-bottom: 0;
   margin-top: 0.25rem;
   line-height: 1;
   color: var(--grey-700);
 }
-
+.aboutrecipe p {
+  margin-bottom: 0;
+  line-height: 1;
+  color: var(--grey-500);
+  margin-top: 0.5rem;
+  letter-spacing: var(--letterSpacing);
+}
 @media screen and (min-width: 576px) {
   .recipes-list {
     grid-template-columns: 1fr 1fr;
@@ -1181,9 +1173,7 @@ Recipes
     padding: 30px; /* Adjust the padding as needed */
   }
   
-  .container {
-    position: relative;
-  }
+
   
   .nav-link {
     text-decoration: none;
@@ -1234,9 +1224,13 @@ About Page
 
 
 
+
+
+
 CONTACT CSS
 
 //contact.css//
+
 
 
 /* fonts */
@@ -1307,6 +1301,7 @@ body {
   line-height: 1.75;
   color: var(--textColor);
 }
+
 
 h1,
 h2,
@@ -1392,84 +1387,8 @@ ul {
   width: 100%;
 }
 
-/* alerts */
-.alert {
-  padding: 0.375rem 0.75rem;
-  margin-bottom: 1rem;
-  border-color: transparent;
-  border-radius: var(--borderRadius);
-}
 
-.alert-danger {
-  color: var(--red-dark);
-  background: var(--red-light);
-}
-.alert-success {
-  color: var(--green-dark);
-  background: var(--green-light);
-}
-/* form */
 
-.form {
-  width: 90vw;
-  max-width: var(--fixed-width);
-  background: var(--white);
-  border-radius: var(--borderRadius);
-  box-shadow: var(--shadow-2);
-  padding: 2rem 2.5rem;
-  margin: 3rem auto;
-}
-.form-label {
-  display: block;
-  font-size: var(--smallText);
-  margin-bottom: 0.5rem;
-  text-transform: capitalize;
-  letter-spacing: var(--letterSpacing);
-}
-.form-input,
-.form-textarea {
-  width: 100%;
-  padding: 0.375rem 0.75rem;
-  border-radius: var(--borderRadius);
-  background: var(--backgroundColor);
-  border: 1px solid var(--grey-200);
-}
-
-.form-row {
-  margin-bottom: 1rem;
-}
-
-.form-textarea {
-  height: 7rem;
-}
-::placeholder {
-  font-family: inherit;
-  color: var(--grey-400);
-}
-.form-alert {
-  color: var(--red-dark);
-  letter-spacing: var(--letterSpacing);
-  text-transform: capitalize;
-}
-/* alert */
-
-@keyframes spinner {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.loading {
-  width: 6rem;
-  height: 6rem;
-  border: 5px solid var(--grey-400);
-  border-radius: 50%;
-  border-top-color: var(--primary-500);
-  animation: spinner 0.6s linear infinite;
-}
-.loading {
-  margin: 0 auto;
-}
 /* title */
 
 .title {
@@ -1545,9 +1464,7 @@ Navbar
   color: var(--primary-500);
 }
 
-.contact-link a {
-  padding: 0.15rem 1rem;
-}
+
 
 @media screen and (min-width: 992px) {
   .navbar {
@@ -1577,6 +1494,7 @@ Navbar
     margin-right: 1rem;
     font-size: 1rem;
   }
+
 }
 /*
 =============== 
@@ -1621,13 +1539,6 @@ Footer
 }
 
 
-@media only screen and (min-width: 768px) {
-  .hero-text h1 {
-    font-size: 4rem;
-    margin-bottom: 0;
-  }
-}
-
 /*
 =============== 
 Recipes 
@@ -1644,8 +1555,6 @@ Recipes
   gap: 2rem 1rem;
   padding-bottom: 3rem;
 }
-
-
 .recipe {
   display: block;
 }
@@ -1654,13 +1563,19 @@ Recipes
   border-radius: var(--borderRadius);
   margin-bottom: 1rem;
 }
-.recipe h5 {
+.aboutrecipe h5 {
   margin-bottom: 0;
   margin-top: 0.25rem;
   line-height: 1;
   color: var(--grey-700);
 }
-
+.aboutrecipe p {
+  margin-bottom: 0;
+  line-height: 1;
+  color: var(--grey-500);
+  margin-top: 0.5rem;
+  letter-spacing: var(--letterSpacing);
+}
 @media screen and (min-width: 576px) {
   .recipes-list {
     grid-template-columns: 1fr 1fr;
@@ -1682,7 +1597,7 @@ Recipes
   .recipe p {
     font-size: 0.85rem;
   }
- 
+  
 }
 
 @media screen and (min-width: 1200px) {
@@ -1701,9 +1616,7 @@ Recipes
     padding: 30px; /* Adjust the padding as needed */
   }
   
-  .container {
-    position: relative;
-  }
+
   
   .nav-link {
     text-decoration: none;
@@ -1711,26 +1624,210 @@ Recipes
     padding: 10px 20px; /* Adjust padding as needed */
   }
 
-
 /*
 =============== 
-Contact Page
+About Page
 ===============
 */
-.contact-form {
-  width: 100%;
-  margin: 0;
+
+.about-page h2 {
+  text-transform: none;
+  font-weight: bold;
+  font-size: 30px;
 }
-.contact-container {
+.about-page {
   display: grid;
-  gap: 2rem 3rem;
+  gap: 2rem 4rem;
   padding-bottom: 3rem;
 }
+.about-img {
+  border-radius: var(--borderRadius);
+  height: 300px;
+}
+
 @media screen and (min-width: 992px) {
-  .contact-container {
-    grid-template-columns: 1fr 450px;
+  .about-page {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 400px;
     align-items: center;
   }
+  .about-img {
+    height: 100%;
+  }
+}
+
+.featured-title {
+  text-align: center;
+}
+
+
+
+MENU CSS
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../img/bgmain.webp");
+    background-size: cover; /* Ensure the background image covers the whole screen */
+    height: 100vh; /* Ensure the body takes the full height of the viewport */
+    margin: 0; /* Remove default margin */
+}
+
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 70%;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+.search {
+    --input-line: #cccccc;
+    --input-text-color: #808080;
+    --input-text-hover-color: transparent;
+    --input-border-color: #808080;
+    --input-border-hover-color: #999999;
+    --input-bg-color: #333333;
+    --search-max-width: 450px;
+    --search-min-width: 350px;
+    --border-radius: 5px;
+    --transition-cubic-bezier: 150ms cubic-bezier(0.4,0,0.2,1);
+    margin: 50px;
+}
+
+.search-box {
+    max-width: var(--search-max-width);
+    min-width: var(--search-min-width);
+    height: 35px;
+    border: 1px solid var(--input-border-color);
+    border-radius: var(--border-radius);
+    padding: 5px 15px;
+    background: var(--input-bg-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: var(--transition-cubic-bezier);
+}
+
+.search-box:hover {
+    border-color: var(--input-border-hover-color);
+}
+
+.search-field {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    left: -5px;
+    border: 0;
+}
+
+.input {
+    width: calc(100% - 29px);
+    height: 100%;
+    border: 0;
+    border-color: transparent;
+    font-size: 1rem;
+    padding-right: 0px;
+    color: var(--input-line);
+    background: var(--input-bg-color);
+    border-right: 2px solid var(--input-border-color);
+    outline: none;
+}
+
+.input::-webkit-input-placeholder {
+    color: var(--input-text-color);
+}
+
+.input::-moz-input-placeholder {
+color: var(--input-text-color);
+}
+
+.input::-ms-input-placeholder {
+    color: var(--input-text-color);
+}
+
+.input:focus::-webkit-input-placeholder {
+    color: var(--input-text-hover-color);
+}
+
+.input:focus::-moz-input-placeholder {
+    color: var(--input-text-hover-color);
+}
+
+.input:focus::-ms-input-placeholder {
+    color: var(--input-text-hover-color);
+}
+
+.search-box-icon {
+    width: 52px;
+    height: 35px;
+    position: absolute;
+    top: -1px;
+    right: -21px;
+    background: transparent;
+    border-bottom-right-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    transition: var(--transition-cubic-bezier);
+}
+
+.search-box-icon:hover {
+    background: var(--input-border-color);
+}
+
+.btn-icon-content {
+    width: 52px;
+    height: 35px;
+    top: -6px;
+    right: -21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-bottom-right-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    transition: var(--transition-cubic-bezier);
+    opacity: .4;
+}
+
+.btn-icon-content:hover {
+    opacity: .8;
+}
+
+.search-icon {
+    width: 21px;
+    height: 21px;
+    position: absolute;
+    top: 7px;
+    right: 15px;
+}
+
+#results {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#results li {
+    list-style: none;
+    margin: 10px;
+    width: 350px;
 }
 
 
@@ -1784,72 +1881,40 @@ function searchRecipes(query) {
 
 //WEB.JS//
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Get references to the slider elements
-    const sliderContent = document.querySelector('.slider-content');
-    const slides = sliderContent.querySelectorAll('img');
-    let currentSlideIndex = 0;
+// web.js - Move slideshow logic into a React component
 
-    // Function to show the current slide
-    function showSlide(index) {
-        // Hide all slides
-        slides.forEach(function(slide) {
-            slide.style.display = 'none';
-        });
+import React, { useState, useEffect } from 'react';
 
-        // Show the slide at the given index
-        slides[index].style.display = 'block';
-    }
+const Slideshow = ({ images }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-    // Function to move to the next slide
-    function nextSlide() {
-        currentSlideIndex++;
-        if (currentSlideIndex >= slides.length) {
-            currentSlideIndex = 0;
-        }
-        showSlide(currentSlideIndex);
-    }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000); // Change slide every 5 seconds
 
-    // Show the initial slide
-    showSlide(currentSlideIndex);
+    return () => clearInterval(interval);
+  }, [images]);
 
-    // Automatically move to the next slide every 3 seconds
-    setInterval(nextSlide, 3000);
-});
+  return (
+    <div className="slider">
+      <div className="slider-content">
+        {images.map((image, index) => (
+          <img
+            key={index}
+            src={image}
+            alt={`Slide ${index + 1}`}
+            style={{ display: index === currentImageIndex ? 'block' : 'none' }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
-
-INDEX.JS
-
-
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ContactPage from "./pages/ContactPage";
-import AboutPage from "./pages/AboutPage";
-import MenuPage from "./pages/MenuPage";
-import './css/web.css';
-
-
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <BrowserRouter>
-  <Routes>
-    <Route path='/'element={<App/>}/>
-    <Route path='/about'element={<AboutPage/>} />
-    <Route path='/menu'element={<MenuPage/>} />
-    <Route path='/contact'element={<ContactPage/>} />
-  </Routes>    
-  </BrowserRouter>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+export default Slideshow;
 
 
 
@@ -1868,4 +1933,37 @@ function App() {
 }
 
 export default App;
+
+
+
+
+INDEX.JS
+
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ContactPage from "./pages/ContactPage";
+import AboutPage from "./pages/AboutPage";
+
+
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <BrowserRouter>
+  <Routes>
+    <Route path='/'element={<App/>}/>
+    <Route path='/about'element={<AboutPage/>} />
+    <Route path='/contact'element={<ContactPage/>} />
+  </Routes>    
+  </BrowserRouter>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
 
