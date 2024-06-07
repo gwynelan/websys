@@ -1,0 +1,390 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+
+
+/* fonts */
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&family=Montserrat&display=swap');
+html {
+  font-size: 100%;
+} /*16px*/
+
+
+
+/* buttons */
+
+.aboutpage-nav-btn, .aboutpage-btn {
+  cursor: pointer;
+  color: var(--white);
+  background: var(--primary-500);
+  border: transparent;
+  border-radius: var(--borderRadius);
+  letter-spacing: var(--letterSpacing);
+  padding: 0.375rem 0.75rem;
+  box-shadow: var(--shadow-1);
+  transition: var(--transtion);
+  text-transform: capitalize;
+  display: inline-block;
+}
+.aboutpage-nav-btn:hover, .aboutpage-btn {
+  background: var(--primary-700);
+  box-shadow: var(--shadow-3);
+}
+.aboutpage-nav-btn-hipster, .aboutpage-btn {
+  color: var(--primary-500);
+  background: var(--primary-200);
+}
+.aboutpage-nav-btn-hipster:hover, .aboutpage-btn {
+  color: var(--primary-200);
+  background: var(--primary-700);
+}
+.aboutpage-nav-btn-block {
+  width: 100%;
+}
+
+
+
+/* title */
+
+.title {
+  text-align: center;
+}
+
+.title-underline {
+  background: var(--primary-500);
+  width: 7rem;
+  height: 0.25rem;
+  margin: 0 auto;
+  margin-top: -1rem;
+}
+
+/*
+=============== 
+Navbar
+===============
+*/
+
+.aboutpage-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.aboutpage-nav-center {
+  width: 90vw;
+  max-width: var(--max-width);
+  padding: 10px 2px;
+  height: 20px;
+}
+.aboutpage-nav-header {
+  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.aboutpage-nav-logo img  {
+  width: 200px;
+}
+.aboutpage-nav-logo {
+  display: flex;
+  align-items: flex-end;
+  font-family: var(--bodyFont);
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+.aboutpage-nav-btn {
+  padding: 0.15rem 0.75rem;
+}
+.aboutpage-nav-btn i {
+  font-size: 1.25rem;
+}
+.aboutpage-nav-links {
+  height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 30px;
+}
+
+.show-links {
+  height: 23.9375rem;
+}
+
+.aboutpage-nav-link{
+  text-decoration: none;
+  color: #000;
+  padding: 10px 20px;
+  display: block;
+  text-align: center;
+  font-size: 1.25rem;
+  text-transform: capitalize;
+  font-weight: 400;
+  line-height: 1.75;
+  font-family: 'Montserrat', sans-serif;
+  padding: 5px 500px;
+  transition: .2s;
+  margin: 0 5px;
+  text-decoration: none;
+  
+}
+.nav-link:hover {
+  color: var(--primary-500);
+}
+
+
+
+@media screen and (min-width: 400px) {
+  .aboutpage-navbar {
+    height: 6rem;
+  }
+  .aboutpage-nav-center {
+    display: flex;
+    align-items: center;
+  }
+  .aboutpage-nav-header{
+    padding: 0;
+    margin-right: 2rem;
+    height: auto;
+
+  }
+
+  .aboutpage-nav-btn {
+    display: none;
+  }
+  .aboutpage-nav-links {
+    height: auto !important;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .aboutpage-nav-link {
+    padding: 0;
+    border-top: none;
+    margin-right: 1rem;
+    font-size: 1rem;
+  }
+
+}
+
+
+/*contact Button*/
+
+.aboutpage-btn {
+  cursor: pointer;
+  color: var(--white);
+  background: var(--primary-500);
+  border: transparent;
+  border-radius: var(--borderRadius);
+  letter-spacing: var(--letterSpacing);
+  padding: 0.375rem 0.75rem;
+  box-shadow: var(--shadow-1);
+  transition: var(--transtion);
+  text-transform: capitalize;
+  display: inline-block;
+  text-decoration: none;
+}
+
+
+/*
+
+Page
+===============
+*/
+
+.aboutpage-main {
+  width: 90vw;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.aboutpage-main{
+  padding-top: 2rem;
+  min-height: calc(100vh - (6rem + 4rem));
+}
+/*
+=============== 
+Footer
+===============
+*/
+
+.aboutpage-footer {
+  text-align: center;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: grey;
+  color: var(--white);
+}
+.aboutpage-footer h5 {
+  margin-top: 0;
+  margin-bottom: 0;
+
+}
+.aboutpage-footer p {
+  margin-bottom: 0;
+}
+.aboutpage-footer .footer-logo,
+.aboutpage-footer a {
+  color: var(--primary-500);
+}
+
+
+/*Recipes*/
+
+.recipes-container {
+  display: grid;
+  gap: 2rem 1rem;
+}
+
+.aboutpage-recipes-list {
+  display: grid;
+  gap: 2rem 1rem;
+  padding-bottom: 3rem;
+}
+
+.aboutpage-recipe {
+  display: block;
+}
+
+.aboutpage-recipe-img {
+  border-radius: var(--borderRadius);
+  margin-bottom: 1rem;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  font-family: var(--bodyFont);
+  font-weight: 400;
+  line-height: 1.75;
+  height: 15rem;
+
+}
+
+.aboutpage-recipe h5 {
+  margin-bottom: 0;
+  margin-top: 0.25rem;
+  line-height: 1;
+  color: #334155;
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.aboutpage-recipe p {
+  margin-bottom: 0;
+  line-height: 1;
+  color: var(--grey-500);
+  margin-top: 0.5rem;
+  letter-spacing: var(--letterSpacing);
+}
+
+@media screen and (min-width: 576px) {
+  .aboutpage-recipes-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .aboutpage-recipe-img {
+    height: 10rem;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .recipes-container {
+    grid-template-columns: 200px 1fr;
+    gap: 1rem;
+  }
+
+  .aboutpage-recipes-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .aboutpage-recipe p {
+    font-size: 0.85rem;
+    color: grey;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .aboutpage-featured-title h5 {
+    font-size: 1.15rem;
+  }
+
+  .aboutpage-recipes-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.aboutpage-nav-links {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 30px; /* Adjust the padding as needed */
+  }
+  
+
+  
+
+/* About Page */
+.aboutpage-about-section h2 {
+  font-size: 30px;
+  margin: 0px 0px 2rem;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: justify;
+  margin-top: 1%;
+}
+
+.aboutpage-about-section {
+  display: grid;
+  gap: 2rem 4rem;
+  padding-bottom: 3rem;
+  font-family: "Times New Roman", Georgia, serif;
+}
+
+.aboutpage-about-img {
+  border-radius: 5px;
+  height: 100%;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+
+}
+
+@media screen and (min-width: 900px) {
+  .aboutpage-about-section {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 400px;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.aboutpage-featured-title {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
+.aboutpage-about-section p {
+  
+  text-align: justify;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  max-width: 40em;
+  font-family: var(--bodyFont);
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--textColor);
+  width: 100%;
+  font-size: 17px;
+  
+}
