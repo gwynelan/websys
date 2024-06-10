@@ -1,0 +1,581 @@
+/* Header */
+/* In your main CSS file */
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.header ul li {
+  margin-right: 20px; /* Adjust as needed */
+}
+
+.header ul li:last-child {
+  margin-right: 0;
+}
+
+.home-page-title {
+  font-family: 'Arial', sans-serif; /* Specify the font family */
+  font-size: 28px; /* Set the font size */
+   /* Make the text bold */
+  color: #333; /* Set the text color */
+  text-align: center; /* Center align the text */
+}
+
+.home-page-logo {
+  width: 40px; /* Set the width of the logo */
+  height: 40px; /* Maintain aspect ratio */
+  vertical-align: middle; /* Align the logo vertically with the text */
+  margin-right: 10px; /* Add some spacing between the logo and the text */
+}
+
+.home-page-title h1 {
+  margin: 0;
+}
+
+.home-page-main-menu {
+  margin-left: auto;
+}
+
+.home-page-main-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.home-page-main-menu ul li {
+  display: inline;
+  margin-left: 20px;
+}
+
+.home-page-main-menu ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  transition: color 0.2s ease;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.home-page-main-menu ul li a:hover {
+  color: white; 
+  background-color: #333333ab; /* Change link color on hover */
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 4px;
+ 
+}
+.home-page-container {
+  padding: 40px;
+  background-color: #f9f9f9;
+  text-align: center;
+  margin-bottom: 30px;
+
+}
+
+.home-page-container h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: #d35400; /* A warm color to catch the eye */
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.home-page-container h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  height: 4px;
+  width: 50%;
+  background-color: #d66215;
+}
+
+
+.home-page-container p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+
+/* Slider */
+.slider {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  
+}
+
+.slider-content {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider-content img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+/* Additional Creative Elements */
+
+
+.home-page-container h2 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.home-page-button {
+  display: inline-block;
+  background-color: #ff7f50; /* Adjust color as needed */
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.home-page-button:hover {
+  background-color: #ff6347; /* Adjust hover color as needed */
+}
+
+
+.home-page-container img {
+    display: block;
+    width: 80%;
+    height: 90%;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 20px;
+    object-fit: contain;
+  
+  }
+
+
+button.menu-toggle {
+  display: none;
+}
+
+/* Welcome Section */
+.home-page-welcome-section {
+  background-image: url('../img/bgmain.webp');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 100px; /* Padding around the content */
+}
+
+.home-page-welcome-section h2 {
+  font-family: 'Pacifico', cursive; 
+  font-size: 36px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.home-page-welcome-section p {
+  font-family: 'Roboto Slab', serif; 
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.home-page-button {
+  display: inline-block;
+  background-color: #313131;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+.home-page-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: space-between;
+}
+.home-page-button:hover {
+  background-color: #16487e;
+}
+
+/* About Section */
+#home-page-about-section {
+  background-color: #f8f8f8;
+}
+
+#home-page-about-section h2 {
+  font-size: 36px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#home-page-about-section p {
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 40px;
+  
+}
+
+/* Recipe Section */
+.home-page-recipe-section {
+  background-color: #f8f8f8;
+  padding: 40px 20px;
+  border-radius: 3px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.home-page-recipe-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 2px;
+  text-align: center;
+  width: 100%; /* Ensures the h2 takes the full width */
+}
+
+.home-page-recipe-section h2::after {
+  content: '';
+  position: absolute;
+  left: 50%; /* Adjust to position the underline below the word "Popular" */
+  bottom: -10px;
+  height: 4px;
+  width: 14%;
+  background-color: #d66215;
+  transform: translateX(10%); /* Centers the underline based on its width */
+}
+
+
+
+.home-page-box {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Space between cards */
+  padding: 20px; 
+}
+
+.home-page-card {
+  background-color: #ffffffcc; /* Semi-transparent white background */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex: 1;
+  text-align: center;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.home-page-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home-page-card h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.home-page-card p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.home-page-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+  margin-bottom: 15px;
+  object-fit: cover; /* Ensures the image covers the container */
+}
+
+.home-page-card-content {
+  margin-top: auto;
+  padding: 20px; /* Pushes the button to the bottom */
+}
+
+.home-page-card-content a {
+  transition: all 0.3s ease;
+}
+
+.home-page-card-content a:hover {
+  transform: scale(1.1);
+  background-color: #d66215;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.home-page-recipe-button {
+  display: inline-block;
+  background-color:#d66215; /* Adjust color as needed */
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.home-page-recipe-button:hover {
+  background-color: #e74c3c;
+}
+
+/* Contact Section */
+.home-page-contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px;
+  justify-content: space-between;
+}
+
+.home-page-contact-info .row {
+  width: calc(33.33% - 20px); /* Divide the container into three columns and subtracting margin */
+  margin-right: 20px; /* Add margin between columns */
+}
+
+.home-page-contact-info p {
+  margin: 10px 0; /* Add some vertical margin to each paragraph */
+}
+
+.home-page-contact-info p strong {
+  display: block; /* Make the strong tag behave like a block element */
+}
+.socialmediarow {
+  margin-top: 20px;
+}
+.contactrow {
+  margin-top: 20px;
+
+}
+
+.contactrow p {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.contactrow a {
+  color: #333;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.socialmediarow a {
+  color: #333;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.socialmediarow p {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.socialmediarow ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+.socialmediarow li {
+  margin-bottom: 10px;
+  list-style: none;
+  align-items: center;
+}
+
+.socialmediarow a {
+  color: #333;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.socialmediarow a:hover {
+  color: #d66215; /* Change color on hover */
+}
+
+.social-media-info i {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.facebook-icon {
+  color: blue;
+}
+
+.twitter-icon {
+  color: rgb(62, 186, 228);
+}
+
+.instagram-icon {
+  color: red;
+}
+
+
+.row {
+  margin-top: 20px;
+  margin-top: 20px; /* Add space above the quote */
+  font-style: italic; /* Italic style for the quote */
+  color: #666; /* Text color for the quote */
+}
+
+.row p {
+  font-size: 18px; /* Larger font size for emphasis */
+  color: #333; /* Dark text color */
+  font-style: italic; /* Italic style for the quote */
+  text-align: center; /* Center align the text */
+  margin: 0; /* Remove default margin */
+}
+
+.row p::after {
+  font-size: 24px; /* Larger font size for the smile symbol */
+  margin-left: 5px; /* Add some spacing between the quote and the smile symbol */
+}
+
+
+@media screen and (max-width: 768px) {
+  /* Adjust styles for smaller screens */
+  .header {
+    flex-direction: column; /* Stack header items vertically */
+  }
+  
+  .header ul li {
+    margin-right: 10px; /* Reduce margin between nav items */
+  }
+  
+  .home-page-title {
+    font-size: 24px; /* Decrease font size for smaller screens */
+  }
+
+  .home-page-logo {
+    width: 30px; /* Decrease logo size for smaller screens */
+    height: 30px; 
+  }
+
+  .home-page-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .home-page-main-menu {
+    margin-left: 0; /* Remove margin for smaller screens */
+    margin-top: 20px; /* Add some space between title and nav for smaller screens */
+  }
+  
+  .home-page-main-menu ul li {
+    margin-left: 10px; /* Reduce margin between nav items */
+  }
+  
+  .home-page-welcome-section h2 {
+    font-size: 24px; /* Decrease font size for smaller screens */
+    margin-bottom: 10px; /* Reduce margin bottom for smaller screens */
+  }
+  
+  .home-page-welcome-section p {
+    font-size: 14px; /* Decrease font size for smaller screens */
+    margin-bottom: 20px; /* Reduce margin bottom for smaller screens */
+  }
+  
+  .home-page-button {
+    padding: 8px 16px; /* Reduce padding for smaller screens */
+  }
+  
+  .home-page-welcome-section {
+    padding: 90px; /* Reduce padding for smaller screens */
+  }
+  
+  .home-page-container {
+    padding: 20px; /* Reduce padding for smaller screens */
+  }
+  .home-page-box {
+    flex-direction: column; /* Display cards in a single column */
+  }
+  
+  .home-page-card {
+    width: 90%; /* Set card width to full width */
+    margin-bottom: 20px; /* Add spacing between cards */
+  }
+
+  .home-page-contact-info {
+    align-items: center; /* Center align content */
+  }
+  .socialmediarow,
+.contactrow,
+.row {
+  display: inline-block;
+  margin-right: 20px; /* Add spacing between inline elements */
+}
+
+/* Adjust margins to maintain spacing */
+
+.contactrow {
+  margin-bottom: 20px;
+  display: none;
+
+}
+
+.socialmediarow,
+.row {
+  display: inline-block;
+  margin-bottom: 20px; /* Maintain spacing and keep elements in a row */
+}
+
+/* Adjust margins to maintain spacing */
+.socialmediarow {
+  display: inline-block;
+  margin-right: 20px; /* Add spacing between elements */
+}
+.home-page-contact-info p strong {
+  display: block;
+  text-align: center;
+}
+}
+
+

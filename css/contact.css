@@ -1,32 +1,44 @@
+/* General styling */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Header */
-.aboutpage-header {
+.contactpage-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 10px;
   background-color: #f8f8f8;
   border-bottom: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.aboutnav-logo {
+
+
+.contactnav-logo {
   width: 20%; /* Adjust logo width */
   position: absolute;
   left: 1rem;
 }
 
-.aboutnav-logo img {
+.contactnav-logo img {
   width: 50%;
   height: 50%;
 }
 
-.aboutpage-nav-links {
+.contactpage-nav-links {
   display: flex;
+  margin-left: 50%;
   justify-content: flex-end;
   width: 50%;
-  margin-left: 50%;
+
 }
 
-.aboutpage-nav-link {
+.nav-link {
   text-decoration: none;
   color: #333;
   padding: 0.5rem 1rem;
@@ -37,41 +49,111 @@
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.aboutpage-nav-link:hover {
+
+.nav-link:hover {
   background-color: #33333363;
   color: black;
 }
 
-/* About section */
-.aboutpage-about {
+
+/* Contact content */
+.contactpage-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
   padding: 2rem;
 }
 
-.aboutpage-about-content {
+.contactpage-info {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.aboutpage-about-text {
-  flex: 1;
-  margin-right: 2rem;
+.contactpage-info h2 {
+  margin-bottom: 1rem;
+  font-size: 24px; /* Adjust font size */
+  color: #333; /* Set a pleasing color */
+  text-align: center; /* Center align the heading */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Add a subtle text shadow */
 }
 
-.aboutpage-about-img {
-  max-width: 100%;
-  height: auto;
+
+.contactpage-info p {
+  margin-bottom: 1rem;
+  text-align: justify;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px; /* Adjust font size */
+  line-height: 1.6; /* Increase line height for better readability */
+  color: #333; /* Adjust text color */
 }
 
-/* Featured recipes section */
-.aboutpage-featured-recipes {
+/* Form */
+.contactpage-form {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 38%);
+}
+
+.form-row {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-size: 16px;
+  margin-bottom:  0.5rem;
+  color: #333; 
+  font-family: 'Roboto', sans-serif;
+}
+
+.form-input,
+.form-textarea {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-textarea {
+  height: 150px;
+}
+
+.btn {
+  cursor: pointer;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 12px 24px;
+  transition: background-color 0.3s ease;
+  margin-top: 16px;
+  font-family: 'Roboto', sans-serif; 
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* Featured Recipes */
+.contactpage-featured-recipes {
   padding: 2rem;
   background-color: #f8f8f8;
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;  
+  gap: 2rem;
 }
 
-.aboutpage-featured-title {
+.contactfeatured-title {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   text-align: center;
@@ -79,12 +161,13 @@
   width: 100%;
 }
 
-.aboutpage-recipes-list {
+.contactrecipes-list {
   display: flex;
   gap: 2rem;
+  width: 100%;
 }
 
-.aboutpage-recipe {
+.contactrecipe {
   position: relative;
   overflow: hidden;
   text-align: center;
@@ -98,86 +181,66 @@
   margin-bottom: 2rem; /* Add margin for spacing */
 }
 
-.aboutpage-recipe:hover {
+.contactrecipe:hover {
   box-shadow: var(--shadow-3);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.aboutpage-recipe-img {
+.contactrecipe-img {
   width: 100%;
   height: auto;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   object-fit: cover;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4 / 3; /* Ensure rectangular shape (width:height = 4:3) */
 }
 
-.aboutpage-recipe h5 {
+.contactrecipe h5 {
   margin: 0.25rem 0;
   line-height: 1;
   color: #334155;
   font-family: Roboto, sans-serif;
   font-size: 20px;
   text-align: center;
-  text-decoration: none;
 }
-.aboutpage-recipe p {
+
+.contactrecipe p {
   color: #777;
-  text-align: center;
 }
-.aboutpage-about-text p {
-  margin-bottom: 1rem;
-  text-align: justify;
-  font-family: 'Roboto', sans-serif;
-  font-size: 15px; /* Adjust font size */
-  line-height: 1.6; /* Increase line height for better readability */
-  color: #333; /* Adjust text color */
-  margin-top: 10px;
-}
-
-.aboutpage-about-text h2 {
-  margin-bottom: 1rem;
-  font-size: 28px; /* Adjust font size */
-  color: #333; /* Set a pleasing color */
-  text-align: center; /* Center align the heading */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Add a subtle text shadow */
-  margin-bottom: 45px;
-}
-
 
 /* Footer */
-.aboutpage-footer {
+.contactpage-footer {
   background: #333;
   color: #fff;
   text-align: center;
   padding: 1rem 2rem;
 }
 
-.aboutpage-footer a {
+.contactpage-footer a {
   color: #007bff;
   text-decoration: none;
 }
 
-.aboutpage-footer a:hover {
+.contactpage-footer a:hover {
   text-decoration: underline;
 }
 
 /* Media Queries for Mobile Responsiveness */
 @media screen and (max-width: 768px) {
   /* Header adjustments */
-  .aboutpage-header {
+  .contactpage-header {
     flex-direction: column;
     align-items: center;
     padding: 1rem;
   }
 
   /* Logo adjustments */
-  .aboutnav-logo {
+  .contactnav-logo {
     display: none; /* Hide the logo in mobile view */
   }
 
   /* Navigation links adjustments */
-  .aboutpage-nav-links {
+  .contactpage-nav-links {
     width: 100%;
     justify-content: center; /* Center align nav links */
     margin-top: 1rem; /* Add some space between logo and nav links */
@@ -185,7 +248,7 @@
   }
 
   /* Individual navigation link adjustments */
-  .aboutpage-nav-link {
+  .nav-link {
     padding: 0.5rem 1rem;
     font-size: 18px;
     text-decoration: none;
@@ -195,18 +258,34 @@
     transition: background-color 0.3s ease, color 0.3s ease;
   }
   
-  .aboutpage-nav-link:hover {
+  .nav-link:hover {
     background-color: #333;
     color: #fff;
   }
   
+
+  /* Adjustments for Contact content */
+  .contactpage-content {
+    grid-template-columns: 1fr;
+  }
+
+  .contactpage-info {
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  /* Adjustments for Form */
+  .contactpage-form {
+    width: 90%;
+  }
+
   /* Adjustments for Featured Recipes */
-  .aboutpage-featured-recipes {
+  .contactpage-featured-recipes {
     padding: 2rem;
     background-color: #f8f8f8;
   }
   
-  .aboutpage-featured-title {
+  .contactfeatured-title {
     font-family: 'Roboto', sans-serif;
     font-size: 24px;
     text-align: center;
@@ -214,13 +293,13 @@
     color: #333;
   }
   
-  .aboutpage-recipes-list {
+  .contactrecipes-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
   }
   
-  .aboutpage-recipe {
+  .contactrecipe {
     width: 300px;
     margin-bottom: 2rem;
     background-color: #fff;
@@ -229,19 +308,19 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
-  .aboutpage-recipe:hover {
+  .contactrecipe:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   }
   
-  .aboutpage-recipe-img {
+  .contactrecipe-img {
     width: 100%;
     height: auto;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
   }
   
-  .aboutpage-recipe h5 {
+  .contactrecipe h5 {
     margin: 0.25rem 0;
     line-height: 1;
     color: #334155;
@@ -250,25 +329,10 @@
     text-align: center;
   }
   
-  .aboutpage-recipe p {
-    margin-bottom: 1rem;
+  .contactrecipe p {
+    color: #777;
     text-align: center;
-    font-family: 'Roboto', sans-serif;
-    font-size: 15px; /* Adjust font size */
-    line-height: 1.6; /* Increase line height for better readability */
-    color: #333333ee; /* Adjust text color */
   }
-    /* About section adjustments */
-    .aboutpage-about-content {
-      flex-direction: column;
-      align-items: center;
-    }
+
   
-    .aboutpage-about-text {
-      margin-bottom: 2rem;
-    }
-  
-    .aboutpage-about-img {
-      margin-top: 2rem;
-    }
 }
